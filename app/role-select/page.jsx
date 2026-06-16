@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useApp } from "@/components/AppContext";
 import { useUser } from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { ShieldCheck, User, Store, KeyRound, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 
-export default function RoleSelectPage() {
+function RoleSelectContent() {
   const { user, isLoaded } = useUser();
   const { dbUser, registerUserRole, appLoading } = useApp();
   const router = useRouter();
@@ -228,5 +228,13 @@ export default function RoleSelectPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function RoleSelectPage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto px-4 py-20 text-center text-sm font-semibold">Loading portal...</div>}>
+      <RoleSelectContent />
+    </Suspense>
   );
 }
