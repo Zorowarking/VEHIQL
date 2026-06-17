@@ -35,7 +35,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-##Project Summary
+## Project Summary
+
+
 VEHIQL is a premium car rental and dealership marketplace platform built using Next.js 15 (App Router), React, and Tailwind CSS. 
 
 Key features include:
